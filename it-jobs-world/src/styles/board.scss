@@ -1,0 +1,10 @@
+.board {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  background-color: green;
+}
+
+.notice {
+  color: yellow;
+}
