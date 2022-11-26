@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build it jobs world project
+      - name: Build it-jobs-world project
 	      run: | 
           cd it-jobs-world
           npm run build
