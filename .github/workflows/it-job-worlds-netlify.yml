@@ -16,7 +16,9 @@ jobs:
           cd it-jobs-world
           npm ci
       - name: Build project
-        run: npm run build
+        run: | 
+          cd it-jobs-world
+          npm run build
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with: 
