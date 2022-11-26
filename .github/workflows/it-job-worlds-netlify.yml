@@ -1,15 +1,18 @@
 name: Build and Deploy to Netlify
+
 on:
   push:
     branches:
       - main
     paths:
       - 'it-jobs-world/**'
+
 jobs:
   build:
     runs-on: ubuntu-18.04
+
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Build
 	      run: | 
