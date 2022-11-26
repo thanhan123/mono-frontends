@@ -7,14 +7,16 @@ on:
       - 'it-jobs-world/**'
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Build
+      - name: Install Node Modules
         run: | 
           cd it-jobs-world
-          npm run build
+          npm ci
+      - name: Build project
+        run: npm run build
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with: 
