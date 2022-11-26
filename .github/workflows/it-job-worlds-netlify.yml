@@ -1,25 +1,20 @@
 name: Build and Deploy to Netlify
-
 on:
   push:
     branches:
       - main
     paths:
       - 'it-jobs-world/**'
-
 jobs:
   build:
     runs-on: ubuntu-18.04
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Build
-      run: | 
-        cd it-jobs-world
-        npm run build
-
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build
+        run: | 
+          cd it-jobs-world
+          npm run build
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with: 
