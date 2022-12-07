@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY . .
 
+RUN rm -rf it-jobs-world
+
 WORKDIR /app/location-tracker
 
 RUN npm install

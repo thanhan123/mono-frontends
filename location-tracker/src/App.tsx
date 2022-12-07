@@ -11,7 +11,7 @@ function App() {
       <h1>Location tracker</h1>
       <h2>{check()}</h2>
       <div className="card">
-        <button onClick={() => setCount((count) => count + Math.random())}>
+        <button onClick={() => setCount((count) => count + Math.round(Math.random() * 2 + 1))}>
           count random is {count}
         </button>
       </div>

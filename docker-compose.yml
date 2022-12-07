@@ -1,0 +1,13 @@
+version: '4.11.1'
+services:
+  location-tracker:
+    build: 
+      context: ./
+      dockerfile: ./Dockerfile-location-tracker
+    container_name: location-tracker-c
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./location-tracker:/app/location-tracker
+      - ./core-common:/app/core-common
+      - /app/location-tracker/node_modules
