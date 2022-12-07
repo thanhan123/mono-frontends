@@ -2,11 +2,11 @@ FROM node:19-alpine
 
 WORKDIR /app
 
-COPY package*.json .
+COPY . .
+
+WORKDIR /app/location-tracker
 
 RUN npm install
-
-COPY . .
 
 EXPOSE 3000
 
