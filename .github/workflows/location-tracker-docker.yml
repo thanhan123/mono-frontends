@@ -1,0 +1,21 @@
+name: Build and Update Docker Image
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'location-tracker/**'
+      - 'core-common/**'
+
+jobs:
+  build-and-update-docker-image:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build Docker Image
+      run: |
+        docker build -t location-tracker:latest -f Dockerfile-location-tracker .
+    - name: Update Docker Image
+      run: |
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p {{ secrets.DOCKER_PASSWORD }}
+        docker push location-tracker:latest
