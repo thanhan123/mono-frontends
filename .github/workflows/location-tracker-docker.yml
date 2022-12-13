@@ -21,7 +21,5 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Push Image
-      uses: docker/build-push-action@v3
-      with:
-        push: true
-        tags: andinh0410/location-tracker:latest
+      run: |
+        docker push andinh0410/location-tracker:latest
