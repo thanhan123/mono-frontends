@@ -1,3 +1,3 @@
 export const check = () => {
-  return "check function from core-common version 8"
+  return "check function from core-common version 9"
 }
