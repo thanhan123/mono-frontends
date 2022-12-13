@@ -1,4 +1,4 @@
-name: Locaiton tracker Build and Update Docker Image
+name: Location tracker Build and Update Docker Image
 on:
   push:
     branches:
