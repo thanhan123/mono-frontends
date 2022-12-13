@@ -18,4 +18,4 @@ jobs:
     - name: Update Docker Image
       run: |
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        docker push location-tracker:latest
+        docker push andinh0410/location-tracker:latest
