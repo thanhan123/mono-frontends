@@ -25,7 +25,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: location-tracker
-        IMAGE_TAG: $GITHUB_SHA
+        IMAGE_TAG: ${{ GITHUB_SHA }}
       run: |
         docker build --platform linux/amd64 -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile-location-tracker-serve .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
