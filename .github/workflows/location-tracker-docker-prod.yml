@@ -8,7 +8,7 @@ on:
       - 'core-common/**'
 
 jobs:
-  build-and-update-docker-image:
+  build-and-deploy-docker-image-to-aws:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
