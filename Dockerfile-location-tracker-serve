@@ -16,6 +16,6 @@ FROM nginx:1.23.3
 
 COPY ./location-tracker/nginx/nginx.conf /etc/nginx/nginx.conf
 
-RUN true
+RUN --from=build ls -a
 
 COPY --from=build /app/location-tracker/dist /usr/share/nginx/html
