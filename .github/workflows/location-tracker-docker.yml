@@ -1,8 +1,8 @@
-name: Location tracker Build and Update Docker Image
+name: Location tracker Build and Update Development Docker Image
 on:
   push:
     branches:
-      - main
+      - develop
     paths:
       - 'location-tracker/**'
       - 'core-common/**'
