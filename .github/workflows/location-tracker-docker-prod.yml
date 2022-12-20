@@ -26,5 +26,5 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: location-tracker
       run: |
-        docker build --platform linux/amd64 -t $ECR_REGISTRY/$ECR_REPOSITORY:$GITHUB_SHA -f Dockerfile-location-tracker-serve .
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$GITHUB_SHA -f Dockerfile-location-tracker-serve .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$GITHUB_SHA
