@@ -16,8 +16,6 @@ import { check } from "@core-common/check";
       <JobItem title="title6" />
       <JobItem title="title7" />
       <JobItem title="title8" />
-      <JobItem title="title9" />
-      <JobItem title="title10" />
     </div>
   </div>
 </template>

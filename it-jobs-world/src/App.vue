@@ -1,9 +1,26 @@
 <script setup lang="ts">
 import JobsBoard from "./components/JobsBoard.vue";
+import ReloadPWA from "./components/ReloadPWA.vue";
+import { useRegisterSW } from 'virtual:pwa-register/vue'
+
+const {
+  offlineReady,
+  needRefresh,
+  updateServiceWorker,
+} = useRegisterSW({
+  onRegisteredSW(swUrl) {
+    // eslint-disable-next-line no-console
+    console.log(`Service Worker at: ${swUrl}`)
+  },
+})
+
 </script>
 
 <template>
-  <JobsBoard />
+  <div>
+    <ReloadPWA />
+    <JobsBoard />
+  </div>
 </template>
 
 <style scoped>
