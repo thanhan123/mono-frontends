@@ -2,9 +2,14 @@
   <div v-if="!isPushNotificationSupported">
     <p>Push notification is not supported for this browser</p>
   </div>
-  <button v-else-if="store.subscription" class="button" @click="sendPush()">
-    Send me a Push Notification
-  </button>
+  <div v-else-if="store.subscription">
+    <button  class="button" @click="sendPush()">
+      Send me a Push Notification
+    </button>
+    <button  class="button" @click="sendPushAfterTen()">
+      Send me a Push Notification after 10s
+    </button>
+  </div>
   <button v-else class="button" @click="askPermission()">Allow push notification</button>
 </template>
 
@@ -18,6 +23,12 @@ const store = usePushNotificationSubscriptionStore();
 const sendPush = async () => {
   if (store.subscription) {
     sendPushNotification(store.subscription);
+  }
+};
+
+const sendPushAfterTen = async () => {
+  if (store.subscription) {
+    sendPushNotification(store.subscription, 10);
   }
 };
 

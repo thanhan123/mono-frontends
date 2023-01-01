@@ -18,7 +18,11 @@ export async function savePushSubscription(subscription: any) {
   return response.json();
 }
 
-export async function sendPushNotification(id: string) {
+export async function sendPushNotification(id: string, delay: number = 0) {
+  const payload = {
+    id,
+    delay
+  }
   const url = `${apiHostname}${SEND_PUSH_NOTIFICATION_PATH}`;
   const response = await fetch(url, {
     method: "POST",
@@ -29,6 +33,6 @@ export async function sendPushNotification(id: string) {
       "Content-Type": "application/json",
     },
     referrerPolicy: "no-referrer",
-    body: JSON.stringify(id),
+    body: JSON.stringify(payload),
   });
 }
