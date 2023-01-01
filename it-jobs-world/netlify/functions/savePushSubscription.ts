@@ -1,8 +1,7 @@
-const faunadb = require("faunadb");
+import { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
+import { query, Client } from "faunadb"
 
-const q = faunadb.query;
-
-export async function handler(event) {
+const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
   if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
@@ -15,13 +14,13 @@ export async function handler(event) {
       },
     };
   }
-  const client = new faunadb.Client({
+  const client = new Client({
     secret: process.env.FAUNADB_SERVER_SECRET,
   });
   const pushSubscription = JSON.parse(event.body);
   try {
     const response = await client.query(
-      q.Create(q.Collection("PushNotificationSubscription"), {
+      query.Create(query.Collection("PushNotificationSubscription"), {
         data: pushSubscription,
       })
     );
@@ -48,4 +47,6 @@ export async function handler(event) {
       body: JSON.stringify(error),
     };
   }
-}
+};
+
+export { handler };
