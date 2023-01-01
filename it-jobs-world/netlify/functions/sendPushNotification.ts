@@ -1,9 +1,8 @@
-const faunadb = require("faunadb");
-const webpush = require("web-push");
+import { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
+import { query, Client } from "faunadb"
+import * as webpush from "web-push"
 
-const q = faunadb.query;
-
-export async function handler(event) {
+const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
   if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
@@ -18,13 +17,13 @@ export async function handler(event) {
   }
   const refId = JSON.parse(event.body);
 
-  const client = new faunadb.Client({
+  const client = new Client({
     secret: process.env.FAUNADB_SERVER_SECRET,
   });
 
   try {
-    const subscription = await client.query(
-      q.Get(q.Ref(q.Collection("PushNotificationSubscription"), refId))
+    const subscription: any = await client.query(
+      query.Get(query.Ref(query.Collection("PushNotificationSubscription"), refId))
     );
 
     const pushNotificationPayload = {
@@ -38,7 +37,7 @@ export async function handler(event) {
         p256dh: subscription.data.keys.p256dh,
         auth: subscription.data.keys.auth,
       },
-    };
+    }
 
     // Actually send the push
     webpush.setVapidDetails(
@@ -48,6 +47,7 @@ export async function handler(event) {
     );
 
     await webpush.sendNotification(
+      // @ts-ignore
       pushSubscription,
       JSON.stringify(pushNotificationPayload)
     );
@@ -63,7 +63,6 @@ export async function handler(event) {
       body: "ok",
     };
   } catch (error) {
-    console.log("***> call here 9", error);
     return {
       statusCode: 500,
       headers: {
@@ -75,4 +74,6 @@ export async function handler(event) {
       body: JSON.stringify(error),
     };
   }
-}
+};
+
+export { handler };
