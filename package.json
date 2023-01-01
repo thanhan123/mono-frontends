@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "faunadb": "^4.7.1",
-    "web-push": "^3.5.0"
-  }
-}

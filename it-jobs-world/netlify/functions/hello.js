@@ -1,5 +1,3 @@
-const pinia = require("pinia");
-const vue = require("vue");
 const webpush = require("web-push");
 const faunadb = require("faunadb");
 
