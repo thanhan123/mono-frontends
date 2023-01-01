@@ -21,7 +21,6 @@
   "dependencies": {
     "@vueuse/core": "^9.9.0",
     "faunadb": "^4.7.1",
-    "firebase": "^9.15.0",
     "netlify-lambda": "^2.0.15",
     "pinia": "^2.0.28",
     "vue": "^3.2.41",
