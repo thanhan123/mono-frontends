@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "format": "prettier . --write",
+    "start-netlify": "ntl dev",
     "pwa-serve": "npm run build && serve dist"
   },
   "lint-staged": {
@@ -18,8 +19,13 @@
     ]
   },
   "dependencies": {
+    "@vueuse/core": "^9.9.0",
+    "faunadb": "^4.7.1",
     "firebase": "^9.15.0",
-    "vue": "^3.2.41"
+    "netlify-lambda": "^2.0.15",
+    "pinia": "^2.0.28",
+    "vue": "^3.2.41",
+    "web-push": "^3.5.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.9",

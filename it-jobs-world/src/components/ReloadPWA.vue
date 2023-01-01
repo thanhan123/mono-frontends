@@ -17,13 +17,8 @@
 
 <script setup lang="ts">
 import { useRegisterSW } from "virtual:pwa-register/vue";
-import { askPermission } from "../scripts/PushNotification"
-import { registerToken } from "../scripts/Firebase"
 
 const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW();
-
-askPermission()
-registerToken()
 
 const close = async () => {
   offlineReady.value = false;

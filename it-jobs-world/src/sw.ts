@@ -6,14 +6,12 @@ self.addEventListener("message", (event) => {
 // self.__WB_MANIFEST is default injection point
 precacheAndRoute(self.__WB_MANIFEST);
 
-self.addEventListener('push', event => {
-  console.log("***> called push")
+self.addEventListener("push", (event) => {
   const payload = event.data?.json();
 
   const promiseChain = self.registration.showNotification(payload.title, {
     body: payload.body,
     icon: payload.icon,
-    silent: true,
     data: { clickTarget: payload.clickTarget },
   });
   event.waitUntil(promiseChain);
