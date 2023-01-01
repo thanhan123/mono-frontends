@@ -3,9 +3,9 @@
     <p>Push notification is not supported for this browser</p>
   </div>
   <button v-else-if="store.subscription" class="button" @click="sendPush()">
-    Send me a Push
+    Send me a Push Notification
   </button>
-  <button v-else class="button" @click="askPermission()">Allow for push</button>
+  <button v-else class="button" @click="askPermission()">Allow push notification</button>
 </template>
 
 <script setup lang="ts">
