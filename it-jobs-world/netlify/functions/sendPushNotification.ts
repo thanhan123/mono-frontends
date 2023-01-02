@@ -47,7 +47,7 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
       process.env.VAPID_PRIVATE_KEY
     );
 
-    webpush.sendNotification(
+    await webpush.sendNotification(
       // @ts-ignore
       pushSubscription,
       JSON.stringify(pushNotificationPayload)
