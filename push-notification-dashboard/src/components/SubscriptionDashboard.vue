@@ -22,9 +22,9 @@
 import { sendPushNotification } from "../scripts/PushAPI";
 import { ref } from "vue";
 
-const subscriptionId = ref<string | null>()
-const title = ref<string | null>()
-const body = ref<string | null>()
+const subscriptionId = ref<string | null>(null)
+const title = ref<string | null>(null)
+const body = ref<string | null>(null)
 
 const sendPush = async () => {
   if (subscriptionId.value) {
