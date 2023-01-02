@@ -3,7 +3,10 @@ import SubscriptionDashboard from './components/SubscriptionDashboard.vue'
 </script>
 
 <template>
-  <SubscriptionDashboard />
+  <div>
+    <h1>Push notification control</h1>
+    <SubscriptionDashboard />
+  </div>
 </template>
 
 <style scoped>
