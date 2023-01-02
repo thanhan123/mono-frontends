@@ -17,7 +17,6 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
   }
   const payload = JSON.parse(event.body);
   const refId = payload.id
-  const delay = payload.delay
 
   const client = new Client({
     secret: process.env.FAUNADB_SERVER_SECRET,
@@ -29,8 +28,8 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
     );
 
     const pushNotificationPayload = {
-      title: "Hello There",
-      body: "This is It Jobs world",
+      title: payload.title ?? "Hello There",
+      body: payload.body ?? "This is It Jobs world",
     };
 
     const pushSubscription = {
@@ -48,13 +47,11 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
       process.env.VAPID_PRIVATE_KEY
     );
 
-    setTimeout(() => {
-      webpush.sendNotification(
-        // @ts-ignore
-        pushSubscription,
-        JSON.stringify(pushNotificationPayload)
-      );
-    }, Math.max(0, delay) * 1000);
+    webpush.sendNotification(
+      // @ts-ignore
+      pushSubscription,
+      JSON.stringify(pushNotificationPayload)
+    ); 
 
     return {
       statusCode: 200,

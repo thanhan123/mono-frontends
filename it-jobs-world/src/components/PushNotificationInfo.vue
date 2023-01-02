@@ -6,9 +6,9 @@
     <button  class="button" @click="sendPush()">
       Send me a Push Notification
     </button>
-    <button  class="button" @click="sendPushAfterTen()">
-      Send me a Push Notification after 10s
-    </button>
+    <p class="button mt-2" @click="onClickSubscriptionInfo()">
+      Push subscription id: {{ store.subscription }}
+    </p>
   </div>
   <button v-else class="button" @click="askPermission()">Allow push notification</button>
 </template>
@@ -26,11 +26,9 @@ const sendPush = async () => {
   }
 };
 
-const sendPushAfterTen = async () => {
-  if (store.subscription) {
-    sendPushNotification(store.subscription, 10);
-  }
-};
+const onClickSubscriptionInfo = () => {
+
+}
 
 const isPushNotificationSupported = "Notification" in window;
 </script>
