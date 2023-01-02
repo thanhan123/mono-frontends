@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import JobsBoard from "./components/JobsBoard.vue";
 import ReloadPWA from "./components/ReloadPWA.vue";
 import PushNotificationInfo from "./components/PushNotificationInfo.vue";
 </script>
@@ -8,7 +7,6 @@ import PushNotificationInfo from "./components/PushNotificationInfo.vue";
   <div>
     <ReloadPWA />
     <PushNotificationInfo />
-    <JobsBoard />
   </div>
 </template>
 

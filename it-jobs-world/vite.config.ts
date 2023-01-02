@@ -15,8 +15,8 @@ export default defineConfig({
       includeAssets: ["/vite.svg"],
       strategies: "injectManifest",
       manifest: {
-        name: "IT Jobs World",
-        short_name: "IT Jobs World",
+        name: "Test Push Notification",
+        short_name: "TPN",
         theme_color: "#ffffff",
         start_url: "/",
         display: "standalone",

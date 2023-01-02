@@ -29,7 +29,7 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
 
     const pushNotificationPayload = {
       title: payload.title ?? "Hello There",
-      body: payload.body ?? "This is It Jobs world",
+      body: payload.body ?? "This is Push Notification server",
     };
 
     const pushSubscription = {
