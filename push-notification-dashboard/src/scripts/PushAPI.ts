@@ -4,7 +4,8 @@ const SEND_PUSH_NOTIFICATION_PATH = "/.netlify/functions/sendPushNotification";
 export async function sendPushNotification(id: string, title: string | null, body: string | null) {
   const payload = {
     id,
-    delay: 0
+    title,
+    body
   }
   const url = `${apiHostname}${SEND_PUSH_NOTIFICATION_PATH}`;
   const response = await fetch(url, {
