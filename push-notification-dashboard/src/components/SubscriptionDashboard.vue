@@ -12,8 +12,9 @@
     <br />
     <input placeholder="Type the body" type="text" v-model="body" />
     <br />
+    <br />
     <button  class="button" @click="sendPush()">
-      Send me a Push Notification
+      Send Push Notification
     </button>
   </div>
 </template>
