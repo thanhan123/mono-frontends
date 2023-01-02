@@ -9,7 +9,7 @@ export async function sendPushNotification(id: string, title: string | null, bod
   const url = `${apiHostname}${SEND_PUSH_NOTIFICATION_PATH}`;
   const response = await fetch(url, {
     method: "POST",
-    mode: "cors",
+    mode: "no-cors",
     cache: "no-cache",
     credentials: "same-origin",
     headers: {
